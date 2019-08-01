@@ -25,8 +25,8 @@ JavascriptExecutor javascriptExecutor;
 
     public BasePage(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.webDriverWait = new WebDriverWait(webDriver, 100);
-        this.ajaxElementLocatorFactory=new AjaxElementLocatorFactory(webDriver,100);
+        this.webDriverWait = new WebDriverWait(webDriver, ConfigurationConstraints.MAX_RETRY_FOR_LOCATING_ELEMENT);
+        this.ajaxElementLocatorFactory=new AjaxElementLocatorFactory(webDriver,ConfigurationConstraints.MAX_RETRY_FOR_LOCATING_ELEMENT_AJAX_FACTORY);
         PageFactory.initElements(ajaxElementLocatorFactory,this);
         this.actions = new Actions(webDriver);
         this.javascriptExecutor = (JavascriptExecutor) webDriver;
