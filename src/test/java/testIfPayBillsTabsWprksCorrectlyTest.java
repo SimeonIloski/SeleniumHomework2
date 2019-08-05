@@ -5,9 +5,11 @@ import Pages.LoginPage;
 import Utlis.ConfigurationConstants;
 import Utlis.DriverFactory;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
-
-public class testIfPayBillsTabsWprksCorrectly {
+import org.testng.annotations.Test;
+@Test
+public class testIfPayBillsTabsWprksCorrectlyTest {
     private WebDriver driver;
     private HomePage homePage;
     private LoginPage loginPage;
@@ -23,5 +25,9 @@ public class testIfPayBillsTabsWprksCorrectly {
         accountSummaryPage = loginPage.siginUsingCredentials
                 (ConfigurationConstants.USERNAME_COURSE, ConfigurationConstants.PASSWORD_COURSE);
 
+    }
+    @Test
+    void donothing(){
+        Assert.assertTrue(true);
     }
 }
