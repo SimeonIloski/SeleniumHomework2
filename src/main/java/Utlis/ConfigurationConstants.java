@@ -17,6 +17,7 @@ public class ConfigurationConstants {
     public static final String AMMOUNT="200";
     public static final String DATE="2019-08-05";
     public static final String DESCRIPTION="Payee Description";
+    public static final String CURRENCY="Eurozone (euro)";
 
 
 }
