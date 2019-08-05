@@ -1,7 +1,6 @@
 package Utlis;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -24,8 +23,8 @@ public abstract class BasePage {
 
     public BasePage(WebDriver webDriver) {
         this.webDriver = webDriver;
-        this.webDriverWait = new WebDriverWait(webDriver, ConfigurationConstraints.MAX_RETRY_FOR_LOCATING_ELEMENT);
-        this.ajaxElementLocatorFactory = new AjaxElementLocatorFactory(webDriver, ConfigurationConstraints.MAX_RETRY_FOR_LOCATING_ELEMENT_AJAX_FACTORY);
+        this.webDriverWait = new WebDriverWait(webDriver, ConfigurationConstants.MAX_RETRY_FOR_LOCATING_ELEMENT);
+        this.ajaxElementLocatorFactory = new AjaxElementLocatorFactory(webDriver, ConfigurationConstants.MAX_RETRY_FOR_LOCATING_ELEMENT_AJAX_FACTORY);
         PageFactory.initElements(ajaxElementLocatorFactory, this);
         this.actions = new Actions(webDriver);
         this.javascriptExecutor = (JavascriptExecutor) webDriver;

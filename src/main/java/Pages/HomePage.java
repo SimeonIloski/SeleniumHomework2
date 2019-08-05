@@ -19,7 +19,7 @@ public class HomePage extends BasePage {
     }
     @FindBy(id="signin_button")
     WebElement signinButton;
-    public LoginPage clickButtonSigin(WebElement webElement){
+    public LoginPage clickButtonSigin(){
         signinButton.click();
         return new LoginPage(getWebDriver());
     }
