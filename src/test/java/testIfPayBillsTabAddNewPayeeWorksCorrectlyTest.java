@@ -16,7 +16,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 @Test
 public class testIfPayBillsTabAddNewPayeeWorksCorrectlyTest {
-    private WebDriver driver;
     private HomePage homePage;
     private LoginPage loginPage;
     private AccountSummaryPage accountSummaryPage;
@@ -25,7 +24,7 @@ public class testIfPayBillsTabAddNewPayeeWorksCorrectlyTest {
     private AddNewPayeeAfterAdd addNewPayeeAfterAdd;
     @BeforeTest
     private void before() {
-        driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
+        WebDriver driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
         homePage = new HomePage(driver);
         homePage = (HomePage) homePage.navigateTo(ConfigurationConstants.BASE_URL, homePage);
         loginPage = homePage.clickButtonSigin();
@@ -38,7 +37,6 @@ public class testIfPayBillsTabAddNewPayeeWorksCorrectlyTest {
     }
     @Test
     void CheckIfPayeeAddedSuccessfully(){
-        String value=addNewPayeeAfterAdd.getAlertValue();
-        Assert.assertEquals(value,"The new payee PayeeName was successfully created.");
+        Assert.assertEquals(addNewPayeeAfterAdd.getAlertValue(),"The new payee PayeeName was successfully created.");
     }
 }
