@@ -3,8 +3,10 @@ import Pages.AccountSummaryPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.PayBillsPage;
+import Utlis.BasePage;
 import Utlis.ConfigurationConstants;
 import Utlis.DriverFactory;
+import Utlis.PayBillsTabsFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -16,7 +18,7 @@ public class testIfPayBillsTabsWprksCorrectlyTest {
     private LoginPage loginPage;
     private AccountSummaryPage accountSummaryPage;
     private PayBillsPage payBillsPage;
-
+    private BasePage basePage;
     @BeforeTest
     private void before() {
         driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
@@ -26,9 +28,10 @@ public class testIfPayBillsTabsWprksCorrectlyTest {
         accountSummaryPage = loginPage.siginUsingCredentials
                 (ConfigurationConstants.USERNAME_COURSE, ConfigurationConstants.PASSWORD_COURSE);
         payBillsPage=accountSummaryPage.clickPayBillsTab();
+        basePage=payBillsPage.goToTab();
     }
     @Test
-    void donothing(){
+    void doNothing(){
         Assert.assertTrue(true);
     }
 }

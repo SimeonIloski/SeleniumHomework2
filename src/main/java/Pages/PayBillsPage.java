@@ -1,5 +1,6 @@
 package Pages;
 
+import Pages.SubPages.AddNewPayee;
 import Utlis.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,6 +14,13 @@ public class PayBillsPage extends BasePage {
     @Override
     public BasePage newInstance(WebDriver driver) {
         return null;
+    }
+    @FindBy(linkText = "Add New Payee")
+    WebElement tabElement;
+
+    public AddNewPayee goToTab(){
+        tabElement.click();
+     return new AddNewPayee(getWebDriver());
     }
 
 
