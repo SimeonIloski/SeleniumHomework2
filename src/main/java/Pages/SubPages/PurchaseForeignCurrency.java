@@ -49,7 +49,7 @@ public class PurchaseForeignCurrency extends BasePage {
 
     private void chooseFromDDSOptionContainsText(WebElement ddl, String itemText)  {
         ddl.click();
-    
+
         List<WebElement> ddlFromAccountsOptions = waitAndFindElements(ddl, By.tagName("option"));
         for (WebElement ddlFromAccountsOption : ddlFromAccountsOptions) {
             String optionText = ddlFromAccountsOption.getText();
