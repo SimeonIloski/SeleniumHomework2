@@ -6,22 +6,22 @@ import Pages.LoginPage;
 import Pages.PayBillsPage;
 import Pages.SubPages.AddNewPayee;
 import Pages.SubPages.AddNewPayeeAfterAdd;
-import Utlis.BasePage;
+import Pages.SubPages.PaySavedPayee;
+import Pages.SubPages.PaySavedPayeeAfterAdd;
 import Utlis.ConfigurationConstants;
 import Utlis.DriverFactory;
-import Utlis.PayBillsTabsFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 @Test
-public class testIfPayBillsTabAddNewPayeeWorksCorrectlyTest {
+public class testIfPayBillsTabPaySavedPayeeWorksCorrectlyTest {
     private HomePage homePage;
     private LoginPage loginPage;
     private AccountSummaryPage accountSummaryPage;
     private PayBillsPage payBillsPage;
-    private AddNewPayee addNewPayee;
-    private AddNewPayeeAfterAdd addNewPayeeAfterAdd;
+    private PaySavedPayee paySavedPayee;
+    private PaySavedPayeeAfterAdd paySavedPayeeAfterAdd;
     @BeforeTest
     private void before() {
         WebDriver driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
@@ -31,12 +31,13 @@ public class testIfPayBillsTabAddNewPayeeWorksCorrectlyTest {
         accountSummaryPage = loginPage.siginUsingCredentials
                 (ConfigurationConstants.USERNAME_COURSE, ConfigurationConstants.PASSWORD_COURSE);
         payBillsPage=accountSummaryPage.clickPayBillsTab();
-         addNewPayee= (AddNewPayee) payBillsPage.goToTab(PayBillsTabEnum.ADDNEWPAYEE);
-        addNewPayeeAfterAdd= addNewPayee.addNewPayee(ConfigurationConstants.PAYEE_NAME,ConfigurationConstants.PAYEE_ADDRESS,ConfigurationConstants.PAYEE_ACCOUNT,ConfigurationConstants.PAYEE_DETAILS);
+        paySavedPayee=(PaySavedPayee) payBillsPage.goToTab(PayBillsTabEnum.PAYSAVEDPAYEE);
+        paySavedPayeeAfterAdd=paySavedPayee.clickOnAddButtton(ConfigurationConstants.PAYEE_DDL_CHOOSE,ConfigurationConstants.ACCOUNT_DDL_CHOOSE,
+                ConfigurationConstants.AMMOUNT,ConfigurationConstants.DATE,ConfigurationConstants.DESCRIPTION);
 
     }
     @Test
-    void CheckIfPayeeAddedSuccessfully(){
-        Assert.assertEquals(addNewPayeeAfterAdd.getAlertValue(),"The new payee PayeeName was successfully created.");
-}
+    public void checkIfPaySavedPayeeAddSuccessfullyTest(){
+        Assert.assertEquals(paySavedPayeeAfterAdd.getAlertValue(),"The payment was successfully submitted.");
+    }
 }

@@ -12,6 +12,11 @@ public class ConfigurationConstants {
     public static final String PAYEE_ADDRESS="PayeeAddress";
     public static final String PAYEE_ACCOUNT="PayeeAccount";
     public static final String PAYEE_DETAILS="PayeeDetails";
+    public static final String PAYEE_DDL_CHOOSE="Bank of America";
+    public static final String ACCOUNT_DDL_CHOOSE="Checking";
+    public static final String AMMOUNT="200";
+    public static final String DATE="2019-08-05";
+    public static final String DESCRIPTION="Payee Description";
 
 
 }
