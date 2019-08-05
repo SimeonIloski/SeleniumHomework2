@@ -1,7 +1,9 @@
 package Pages;
 
+import Enums.PayBillsTabEnum;
 import Pages.SubPages.AddNewPayee;
 import Utlis.BasePage;
+import Utlis.PayBillsTabsFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,12 +17,30 @@ public class PayBillsPage extends BasePage {
     public BasePage newInstance(WebDriver driver) {
         return null;
     }
-    @FindBy(linkText = "Add New Payee")
-    WebElement tabElement;
+    @FindBy(linkText = "Pay Saved Payee")
+    WebElement tabElementPaySavedPayee;
 
-    public AddNewPayee goToTab(){
-        tabElement.click();
-     return new AddNewPayee(getWebDriver());
+    @FindBy(linkText = "Add New Payee")
+    WebElement tabElementAddNewPayee;
+    @FindBy(linkText = "Purchase Foreign Currency")
+    WebElement tabElementPurchaseForeignCurrency;
+
+
+    public BasePage goToTab(PayBillsTabEnum tabText){
+       BasePage basePage=null;
+        if(tabText.equals(PayBillsTabEnum.PAYSAVEDPAYEE)){
+           tabElementPaySavedPayee.click();
+           basePage= PayBillsTabsFactory.getPayBilssApropriateTab(PayBillsTabEnum.PAYSAVEDPAYEE,getWebDriver());
+       }
+        if(tabText.equals(PayBillsTabEnum.ADDNEWPAYEE)){
+            tabElementAddNewPayee.click();
+            basePage= PayBillsTabsFactory.getPayBilssApropriateTab(PayBillsTabEnum.ADDNEWPAYEE,getWebDriver());
+        }
+        if(tabText.equals(PayBillsTabEnum.PURCHASEFOREIGNCURRENCY)){
+            tabElementPurchaseForeignCurrency.click();
+            basePage= PayBillsTabsFactory.getPayBilssApropriateTab(PayBillsTabEnum.PURCHASEFOREIGNCURRENCY,getWebDriver());
+        }
+     return basePage;
     }
 
 

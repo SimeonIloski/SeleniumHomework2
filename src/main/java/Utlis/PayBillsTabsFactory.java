@@ -1,18 +1,19 @@
 package Utlis;
 
+import Enums.PayBillsTabEnum;
 import Pages.SubPages.AddNewPayee;
 import Pages.SubPages.PaySavedPayee;
 import Pages.SubPages.PurchaseForeignCurrency;
 import org.openqa.selenium.WebDriver;
 
 public class PayBillsTabsFactory {
-public static BasePage getPayBilssApropriateTab(String classCode, WebDriver webDriver){
+public static BasePage getPayBilssApropriateTab(PayBillsTabEnum classCode, WebDriver webDriver){
     BasePage basePage=null;
-    if(classCode.equals("paySavedPayee"))
+    if(classCode.equals(PayBillsTabEnum.PAYSAVEDPAYEE))
         basePage= new PaySavedPayee(webDriver);
-    if(classCode.equals("addNewPayee"))
+    if(classCode.equals(PayBillsTabEnum.ADDNEWPAYEE))
        basePage=  new AddNewPayee(webDriver);
-    if(classCode.equals("purchaseForeignCurrency"))
+    if(classCode.equals(PayBillsTabEnum.PURCHASEFOREIGNCURRENCY))
         basePage=  new PurchaseForeignCurrency(webDriver);
     return basePage;
 }

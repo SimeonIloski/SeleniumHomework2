@@ -8,6 +8,10 @@ public class ConfigurationConstants {
     public static final String BASE_URL = "http://zero.webappsecurity.com";
     public static final String USERNAME_COURSE = "username";
     public static final String PASSWORD_COURSE = "password";
+    public static final String PAYEE_NAME="PayeeName";
+    public static final String PAYEE_ADDRESS="PayeeAddress";
+    public static final String PAYEE_ACCOUNT="PayeeAccount";
+    public static final String PAYEE_DETAILS="PayeeDetails";
 
 
 }
