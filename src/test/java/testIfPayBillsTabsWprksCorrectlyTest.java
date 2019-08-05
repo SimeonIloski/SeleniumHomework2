@@ -2,6 +2,7 @@ import Enums.DriverTypeEnum;
 import Pages.AccountSummaryPage;
 import Pages.HomePage;
 import Pages.LoginPage;
+import Pages.PayBillsPage;
 import Utlis.ConfigurationConstants;
 import Utlis.DriverFactory;
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,7 @@ public class testIfPayBillsTabsWprksCorrectlyTest {
     private HomePage homePage;
     private LoginPage loginPage;
     private AccountSummaryPage accountSummaryPage;
-
+    private PayBillsPage payBillsPage;
 
     @BeforeTest
     private void before() {
@@ -24,7 +25,7 @@ public class testIfPayBillsTabsWprksCorrectlyTest {
         loginPage = homePage.clickButtonSigin();
         accountSummaryPage = loginPage.siginUsingCredentials
                 (ConfigurationConstants.USERNAME_COURSE, ConfigurationConstants.PASSWORD_COURSE);
-
+        payBillsPage=accountSummaryPage.clickPayBillsTab();
     }
     @Test
     void donothing(){
