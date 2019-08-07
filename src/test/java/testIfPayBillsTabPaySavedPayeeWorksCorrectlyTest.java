@@ -12,9 +12,10 @@ import Utlis.ConfigurationConstants;
 import Utlis.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-@Test
+@Test(priority = 1)
 public class testIfPayBillsTabPaySavedPayeeWorksCorrectlyTest {
     private HomePage homePage;
     private LoginPage loginPage;
@@ -22,9 +23,10 @@ public class testIfPayBillsTabPaySavedPayeeWorksCorrectlyTest {
     private PayBillsPage payBillsPage;
     private PaySavedPayee paySavedPayee;
     private PaySavedPayeeAfterAdd paySavedPayeeAfterAdd;
+    WebDriver driver;
     @BeforeTest
     private void before() {
-        WebDriver driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
+         driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
         homePage = new HomePage(driver);
         homePage = (HomePage) homePage.navigateTo(ConfigurationConstants.BASE_URL, homePage);
         loginPage = homePage.clickButtonSigin();
@@ -39,5 +41,10 @@ public class testIfPayBillsTabPaySavedPayeeWorksCorrectlyTest {
     @Test
     public void checkIfPaySavedPayeeAddSuccessfullyTest(){
         Assert.assertEquals(paySavedPayeeAfterAdd.getAlertValue(),"The payment was successfully submitted.");
+    }
+    @AfterTest
+    public void afterTest(){
+        driver.close();
+        driver.quit();
     }
 }

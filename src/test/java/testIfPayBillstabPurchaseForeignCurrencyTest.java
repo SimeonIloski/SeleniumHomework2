@@ -12,9 +12,10 @@ import Utlis.ConfigurationConstants;
 import Utlis.DriverFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+@Test(priority = 3)
 public class testIfPayBillstabPurchaseForeignCurrencyTest {
     private HomePage homePage;
     private LoginPage loginPage;
@@ -22,9 +23,10 @@ public class testIfPayBillstabPurchaseForeignCurrencyTest {
     private PayBillsPage payBillsPage;
     private PurchaseForeignCurrency purchaseForeignCurrency;
     private PurchaseForeignCurrencuAfterAdd purchaseForeignCurrencuAfterAdd;
+    WebDriver driver;
     @BeforeTest
     private void before() {
-        WebDriver driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
+         driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
         homePage = new HomePage(driver);
         homePage = (HomePage) homePage.navigateTo(ConfigurationConstants.BASE_URL, homePage);
         loginPage = homePage.clickButtonSigin();
@@ -38,5 +40,10 @@ public class testIfPayBillstabPurchaseForeignCurrencyTest {
     @Test
     public void checkIfPurchaseForeignCurrencyWorkingCorrectlyTest(){
         Assert.assertEquals(purchaseForeignCurrencuAfterAdd.getAlertValue(),"Foreign currency cash was successfully purchased.");
+    }
+    @AfterTest
+    public void afterTest(){
+        driver.close();
+        driver.quit();
     }
 }

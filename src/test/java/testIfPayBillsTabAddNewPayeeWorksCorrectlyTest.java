@@ -12,9 +12,10 @@ import Utlis.DriverFactory;
 import Utlis.PayBillsTabsFactory;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-@Test
+@Test(priority = 2)
 public class testIfPayBillsTabAddNewPayeeWorksCorrectlyTest {
     private HomePage homePage;
     private LoginPage loginPage;
@@ -22,9 +23,10 @@ public class testIfPayBillsTabAddNewPayeeWorksCorrectlyTest {
     private PayBillsPage payBillsPage;
     private AddNewPayee addNewPayee;
     private AddNewPayeeAfterAdd addNewPayeeAfterAdd;
+    WebDriver driver;
     @BeforeTest
     private void before() {
-        WebDriver driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
+        driver = DriverFactory.createDriverForBrowserWithValue(DriverTypeEnum.GOOGLE_CHROME_DRIVER);
         homePage = new HomePage(driver);
         homePage = (HomePage) homePage.navigateTo(ConfigurationConstants.BASE_URL, homePage);
         loginPage = homePage.clickButtonSigin();
@@ -39,4 +41,10 @@ public class testIfPayBillsTabAddNewPayeeWorksCorrectlyTest {
     void CheckIfPayeeAddedSuccessfully(){
         Assert.assertEquals(addNewPayeeAfterAdd.getAlertValue(),"The new payee PayeeName was successfully created.");
 }
+
+    @AfterTest
+    public void afterTest(){
+        driver.close();
+        driver.quit();
+    }
 }

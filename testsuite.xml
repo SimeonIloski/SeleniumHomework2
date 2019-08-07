@@ -1,8 +1,8 @@
 <suite name="test-suite">
     <test name="Selenium Homework 2">
         <classes>
-            <class name="testIfPayBillsTabAddNewPayeeWorksCorrectlyTest"></class>
             <class name="testIfPayBillsTabPaySavedPayeeWorksCorrectlyTest"></class>
+            <class name="testIfPayBillsTabAddNewPayeeWorksCorrectlyTest"></class>
             <class name="testIfPayBillstabPurchaseForeignCurrencyTest"></class>
 
         </classes>
