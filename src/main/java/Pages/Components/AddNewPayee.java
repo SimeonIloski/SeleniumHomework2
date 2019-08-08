@@ -1,4 +1,4 @@
-package Pages.SubPages;
+package Pages.Components;
 
 import Utlis.BasePage;
 import org.openqa.selenium.WebDriver;

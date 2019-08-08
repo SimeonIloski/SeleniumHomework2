@@ -1,12 +1,12 @@
-package Pages.SubPages;
+package Pages.Components;
 
 import Utlis.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class PaySavedPayeeAfterAdd extends BasePage {
-    public PaySavedPayeeAfterAdd(WebDriver webDriver) {
+public class PurchaseForeignCurrencuAfterAdd extends BasePage {
+    public PurchaseForeignCurrencuAfterAdd(WebDriver webDriver) {
         super(webDriver);
     }
 
@@ -24,7 +24,7 @@ public class PaySavedPayeeAfterAdd extends BasePage {
     public String getAlertValue(){
         return getValue(alertElement);
     }
-    public void closeClick(){
+    public void clickClose(){
         waitForElementToBeClickableAndClick(closeButton);
     }
 }
