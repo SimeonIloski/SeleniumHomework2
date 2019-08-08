@@ -1,12 +1,12 @@
-package Pages.Components;
+package Components;
 
 import Utlis.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AddNewPayeeAfterAdd extends BasePage {
-    public AddNewPayeeAfterAdd(WebDriver webDriver) {
+public class PurchaseForeignCurrencuAfterAdd extends BasePage {
+    public PurchaseForeignCurrencuAfterAdd(WebDriver webDriver) {
         super(webDriver);
     }
 

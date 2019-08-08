@@ -1,4 +1,4 @@
-package Pages.Components;
+package Components;
 
 import Utlis.BasePage;
 import org.openqa.selenium.By;

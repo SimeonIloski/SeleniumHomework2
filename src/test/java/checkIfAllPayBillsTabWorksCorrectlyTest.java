@@ -4,7 +4,7 @@ import Pages.AccountSummaryPage;
 import Pages.HomePage;
 import Pages.LoginPage;
 import Pages.PayBillsPage;
-import Pages.Components.*;
+import Components.*;
 import Utlis.ConfigurationConstants;
 import Utlis.DriverFactory;
 import org.openqa.selenium.WebDriver;
