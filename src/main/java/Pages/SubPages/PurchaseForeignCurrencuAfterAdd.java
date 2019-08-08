@@ -16,10 +16,15 @@ public class PurchaseForeignCurrencuAfterAdd extends BasePage {
     }
     @FindBy(id="alert_content")
     WebElement alertElement;
+    @FindBy(className="close")
+    WebElement closeButton;
     String getValue(WebElement webElement){
         return webElement.getText();
     }
     public String getAlertValue(){
         return getValue(alertElement);
+    }
+    public void clickClose(){
+        waitForElementToBeClickableAndClick(closeButton);
     }
 }
