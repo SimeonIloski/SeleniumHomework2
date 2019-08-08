@@ -1,9 +1,9 @@
 package Utlis;
 
 import Enums.PayBillsTabEnum;
-import Pages.SubPages.AddNewPayee;
-import Pages.SubPages.PaySavedPayee;
-import Pages.SubPages.PurchaseForeignCurrency;
+import Pages.Components.AddNewPayee;
+import Pages.Components.PaySavedPayee;
+import Pages.Components.PurchaseForeignCurrency;
 import org.openqa.selenium.WebDriver;
 
 public class PayBillsTabsFactory {
