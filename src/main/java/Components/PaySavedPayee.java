@@ -9,14 +9,6 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class PaySavedPayee extends BasePage {
-    public PaySavedPayee(WebDriver webDriver) {
-        super(webDriver);
-    }
-
-    @Override
-    public BasePage newInstance(WebDriver driver) {
-        return null;
-    }
     @FindBy(id="sp_amount")
     WebElement amountElement;
     @FindBy(id="sp_description")
@@ -29,6 +21,15 @@ public class PaySavedPayee extends BasePage {
     WebElement payeeDateElement;
     @FindBy(id="pay_saved_payees")
     WebElement addButton;
+    public PaySavedPayee(WebDriver webDriver) {
+        super(webDriver);
+    }
+
+    @Override
+    public BasePage newInstance(WebDriver driver) {
+        return null;
+    }
+
 
 
     void chooseFromPayee(String payeeText){
